@@ -16,18 +16,13 @@ const server = http.createServer(function (req, res) {
     body = fs.readFileSync(`./public/index.html`)
   }
 
-
-  // if (req.url === '/css/style.css') {
-  //   body = fs.readFileSync('./public/css/style.css', 'utf8')
-  // } else {
-  //   body = fs.readFileSync('./public/index.html', 'utf8')
-  // }
-
   res.end(body)
 
 })
 
-server.listen(3000)
+const port = process.env.PORT || 3000;
 
-console.log('Server started!')
+server.listen(port);
+
+console.log(`Server started on port ${port}`)
 
