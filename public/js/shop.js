@@ -2,23 +2,22 @@ class List {
   _items = []
 
   constructor (cartInstance) {
-    let goods = this.fetchGoods()
-    goods = goods.map(item => {
-      return new GoodItem(item, cartInstance)
-    })
-    this._items = goods
-    this.render()
+    this.fetchGoods()
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        const goods = data.data.map(item => {
+          return new GoodItem(item, cartInstance)
+        })
+        this._items = goods
+        this.render()
+      })
   }
 
   fetchGoods () {
-    return [
-      {name: 'Shirt', price: 250, img: './img/cart-img-1.png' },
-      {name: 'Shorts', price: 150, img: './img/cart-img-2.png' },
-      {name: 'Jacket', price: 300, img: './img/cart-img-3.png'},
-      {name: 'Shirt', price: 400, img: './img/cart-img-1.png'},
-      {name: 'Shorts', price: 350, img: './img/cart-img-2.png'},
-      {name: 'Jacket', price: 500, img: './img/cart-img-3.png'},
-    ]
+    const url = `./database/items.json`;
+    return fetch(url);
   }
  
   render () {
