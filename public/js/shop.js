@@ -7,7 +7,7 @@ class List {
         return res.json()
       })
       .then(data => {
-        const goods = data.data. map(item => {
+        const goods = data.data.map(item => {
           return new GoodItem(item, cartInstance)
         })
         this._items = goods
@@ -16,7 +16,7 @@ class List {
   }
 
   fetchGoods () {
-    const url = 'http://localhost:3000/database/items.json';
+    const url = `./database/items.json`;
     return fetch(url);
   }
  
