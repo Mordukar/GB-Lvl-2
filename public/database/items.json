@@ -1,0 +1,10 @@
+{ 
+  "data": [
+    {"name": "Shirt", "price": 250, "img": "./img/cart-img-1.png" },
+    {"name": "Shorts", "price": 150, "img": "./img/cart-img-2.png" },
+    {"name": "Jacket", "price": 300, "img": "./img/cart-img-3.png"},
+    {"name": "Shirt", "price": 400, "img": "./img/cart-img-1.png"},
+    {"name": "Shorts", "price": 350, "img": "./img/cart-img-2.png"},
+    {"name": "Jacket", "price": 500, "img": "./img/cart-img-3.png"}
+  ]
+}
