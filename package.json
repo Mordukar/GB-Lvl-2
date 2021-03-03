@@ -1,0 +1,20 @@
+{
+  "name": "webserver",
+  "version": "1.0.0",
+  "description": "GB",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mordukar/GB-Lvl-2.git"
+  },
+  "author": "Evgen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mordukar/GB-Lvl-2/issues"
+  },
+  "homepage": "https://github.com/Mordukar/GB-Lvl-2#readme"
+}

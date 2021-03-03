@@ -1,0 +1,45 @@
+.wrapper-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 15px;
+  margin: 15px;
+}
+
+.wrapper-list > div{
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  max-width: 300px;
+}
+
+.wrapper-list > div > img{
+  width: 100%;
+  max-width: 260px;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.goods-list{
+
+}
+
+.goods-list > div{
+  background-color: darkgray;
+}
+
+.cart-list > div{
+  background-color: rgb(175, 58, 190);
+  color: white;
+}
+
+.goods-list > div > img{
+  
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: darkkhaki;
+}
