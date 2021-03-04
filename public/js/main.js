@@ -1,50 +1,62 @@
 document.querySelector('form').addEventListener('submit', function(e) {
     
-    let inputEmail = document.querySelector('input[type="text"]');
+    let inputEmail = 'input[type="text"]';
 
-    let inputPassword = document.querySelector('input[type="password"]');
+    let inputPassword = 'input[type="password"]';
 
-    let inputPhone = document.querySelector('input[type="tel"]');
+    let inputPhone = 'input[type="tel"]';
 
-    const resultEmail = input.value.match(/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/igm);
 
-    const resultPassword = input.value.match(/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$/);
+    const resultEmail = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/igm;
 
-    const resultPhone = input.value.match(/^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/);
-   
-    if( result ) {
-      result = true;
-    }
-   
-    if(!result) {
-        e.preventDefault();
-        console.log('Некорректно введено поле');
-    }
+    const resultPassword = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$/;
+
+    const resultPhone = /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/;
+
+
+    let inputs = [inputEmail, inputPassword, inputPhone];
+
+    let results = [resultEmail, resultPassword, resultPhone];
+
+
+    inputs.map(function(i) {
+        let input = document.querySelector(i);
+
+        results.map(function(i) {
+            const result = input.value.match(i);
+    
+            if( result ) {
+                result = true;
+              }
+             
+            if(!result) {
+                e.preventDefault();
+                console.log('Некорректно введено поле');
+            }
+        });
+    });
+
 });
 
-class Email {
+// class Email {
 
-    let inputEmail = document.querySelector('input[type="text"]');
+//     constructor(name) {
+//     }
 
-    const resultEmail = input.value.match(/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/igm);
-
-    constructor(name) {
-        if( this.name ) {
-            this.name = true;
-        };
+//     render () {
+//         document.querySelector('form').addEventListener('submit', function(e) {
+//             if( result ) {
+//                 result = true;
+//             }
+            
+//             if(!result) {
+//                 e.preventDefault();
+//                 console.log('Некорректно введено поле');
+//             }
+//         });
+//     }
          
-        if(!this.name) {
-            e.preventDefault();
-            console.log('Некорректно введено поле');
-        };
-    }
-  
-    sayHi() {
-      alert(this.name);
-    }
-  
-  }
-  
-  // Использование:
-  let email = new Email(resultEmail);
-  email.sayHi();
+
+//   // Использование:
+//   let email = new Email(resultEmail);
+//   email.sayHi();
