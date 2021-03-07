@@ -1,54 +1,50 @@
-class Validate {
+"use strict";
 
-    constructor(form) {
-        this.email = '/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/igm'
-        this.password = '/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$/'
-        this.tel = '/^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/'
-        this.inputs = '';
-        this.result = '';
-        this.id = '';
+class Validator {
+  constructor(formId) {
+    this.setListener(formId);
+  }
 
-        this.setListener(form);
-    }
+  setListener(formId) {
+    const form = document.querySelector(formId);
 
-    setListener(form){
-        this.shape = document.querySelector(form);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+  }
 
-        this.shape.addEventListener('submit', (e)=> {
-            this.inputs = shape.querySelectorAll('input')
-            this.checking();
-        });
- 
-    }
+  checkForm(inputs) {
+    const inputs = form.querySelectorAll("input");
 
-    checking() {
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/gim;
+    const passwordRegex = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$/;
+    const telRegex = /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/;
 
-        this.inputs.map((i) => {
+    Array.from(inputs).forEach((input) => {
+      const id = input.getAttribute("id");
 
-            this.id = i.getAttribute('id');
+      let isValid = false;
 
-            if(this.id === 'email') {
-                this.result = input.value.match(this.email)
-            }
-            else if(this.id === 'password') {
-                this.result = input.value.match(this.password)
-            }
-            else if(this.id === 'tel') {
-                this.result = input.value.match(this.tel)
-            }
+      switch (id) {
+        case "email":
+          isValid = emailRegex.test(input.value);
+          break;
+        case "password":
+          isValid = passwordRegex.test(input.value);
+          break;
+        case "tel":
+          isValid = telRegex.test(input.value);
+          break;
+        default:
+          break;
+      }
 
-            if( this.result ) {
-                this.result = true;
-            }
-            
-            if(!this.result) {
-                this.e.preventDefault();
-                console.log('Некорректно введено поле ' + `${this.id}`);
-            }
+      if (!isValid) {
+        console.log("Некорректно введено поле " + `${id}`);
+      }
+    });
+  }
+}
 
-        });
-
-    }
-}    
-
-const ValidateForm = new Validate('#form');
+const formValidator = new Validator("#form");
+formValidator.checkForm();
