@@ -8,18 +8,35 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <form action="" style="border:1px solid #ccc">
+    <form id="form" action="" style="border: 1px solid #ccc">
       <div class="container">
-        
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Введите вашу почту" name="email" required>
-    
-        <label for="psw"><b>Пароль</b></label>
-        <input type="password" placeholder="Введите пароль" name="psw" required>
-    
+        <input
+          type="text"
+          id="email"
+          placeholder="Введите вашу почту"
+          name="email"
+          required
+        />
+
+        <label for="password"><b>Пароль</b></label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Введите пароль"
+          name="password"
+          required
+        />
+
         <label for="tel"><b>Номер телефона</b></label>
-        <input type="tel" placeholder="Введите телефон" name="tel" required>
-    
+        <input
+          type="tel"
+          id="tel"
+          placeholder="Введите телефон"
+          name="tel"
+          required
+        />
+
         <div class="clearfix">
           <button type="button" class="cancelbtn">Отменить</button>
           <button type="submit" class="signupbtn">Регистрация</button>

@@ -1,62 +1,54 @@
-document.querySelector('form').addEventListener('submit', function(e) {
-    
-    let inputEmail = 'input[type="text"]';
+class Validate {
 
-    let inputPassword = 'input[type="password"]';
+    constructor(form) {
+        this.email = '/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/igm'
+        this.password = '/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$/'
+        this.tel = '/^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/'
+        this.inputs = '';
+        this.result = '';
+        this.id = '';
 
-    let inputPhone = 'input[type="tel"]';
+        this.setListener(form);
+    }
 
+    setListener(form){
+        this.shape = document.querySelector(form);
 
-    const resultEmail = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/igm;
-
-    const resultPassword = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$/;
-
-    const resultPhone = /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/;
-
-
-    let inputs = [inputEmail, inputPassword, inputPhone];
-
-    let results = [resultEmail, resultPassword, resultPhone];
-
-
-    inputs.map(function(i) {
-        let input = document.querySelector(i);
-
-        results.map(function(i) {
-            const result = input.value.match(i);
-    
-            if( result ) {
-                result = true;
-              }
-             
-            if(!result) {
-                e.preventDefault();
-                console.log('Некорректно введено поле');
-            }
+        this.shape.addEventListener('submit', (e)=> {
+            this.inputs = shape.querySelectorAll('input')
+            this.checking();
         });
-    });
+ 
+    }
 
-});
+    checking() {
 
-// class Email {
+        this.inputs.map((i) => {
 
-//     constructor(name) {
-//     }
+            this.id = i.getAttribute('id');
 
-//     render () {
-//         document.querySelector('form').addEventListener('submit', function(e) {
-//             if( result ) {
-//                 result = true;
-//             }
+            if(this.id === 'email') {
+                this.result = input.value.match(this.email)
+            }
+            else if(this.id === 'password') {
+                this.result = input.value.match(this.password)
+            }
+            else if(this.id === 'tel') {
+                this.result = input.value.match(this.tel)
+            }
+
+            if( this.result ) {
+                this.result = true;
+            }
             
-//             if(!result) {
-//                 e.preventDefault();
-//                 console.log('Некорректно введено поле');
-//             }
-//         });
-//     }
-         
+            if(!this.result) {
+                this.e.preventDefault();
+                console.log('Некорректно введено поле ' + `${this.id}`);
+            }
 
-//   // Использование:
-//   let email = new Email(resultEmail);
-//   email.sayHi();
+        });
+
+    }
+}    
+
+const ValidateForm = new Validate('#form');
