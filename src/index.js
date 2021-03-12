@@ -1,15 +1,10 @@
 import Vue from 'vue'
-import App from './components/List'
-// import './styles/style.css'
+import App from './App.vue'
+import './styles/style.css'
 
 new Vue({
-  el:'#main',
-  template: '<List />',
-  components: {
-    List,
-  }
-})
+  render: h => h(App),
+}).$mount('#app')
 
-// import Shop from './components/shop'
 
 
