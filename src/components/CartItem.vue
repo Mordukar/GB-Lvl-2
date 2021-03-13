@@ -1,15 +1,15 @@
 <template>
   <div class="cart__item">
-    <img class="cart__img" :src=item.img alt="cart_img">
-    <h2>{{ item.name }}</h2>
-    <span>{{ item.price }}</span>
+    <img class="cart__img" :src=key.img alt="cart_img">
+    <h2>{{ key.name }}</h2>
+    <span>{{ key.price }}</span>
   </div>
 </template>
 
 <script>
   export default  {
     props: {
-      item: {
+      key: {
         type: Object,
       }
     },

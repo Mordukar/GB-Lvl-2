@@ -1,17 +1,18 @@
 <template>
   <div id="app">
     <h1>Список товаров</h1>
-    <List v-bind:items="items"/>
+    <!-- <List v-bind:items="items"/> -->
+    <List />
     <h1>Корзина</h1>
-    <Cart v-bind:itemsCart="itemsCart"/>
+    <!-- <Cart v-bind:itemsCart="itemsCart"/> -->
   </div>
 </template>
 
 <script>
 import List from "./components/List.vue";
 import GoodItem from "./components/GoodItem.vue";
-import Cart from "./components/Cart.vue";
-import CartItem from "./components/CartItem.vue";
+// import Cart from "./components/Cart.vue";
+// import CartItem from "./components/CartItem.vue";
 
 export default {
   name: "app",
@@ -35,8 +36,8 @@ export default {
   components: {
     List,
     GoodItem,
-    Cart,
-    CartItem
+    // Cart,
+    // CartItem
   }
 }
 </script>

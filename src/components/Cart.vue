@@ -1,8 +1,8 @@
 <template>
   <div class="cart__list" id="cart">
       <CartItem
-          v-for="item in itemsCart"
-          v-bind:item="item"
+          v-for="key in itemsCart"
+          v-bind:key="key"
       />
   </div>
 </template>

@@ -1,0 +1,6 @@
+{ 
+  "1":  {"id": 1, "name": "Shirt", "price": 350, "img": "./img/cart-img-1.png" },
+  "2":  {"id": 2, "name": "Shorts", "price": 150, "img": "./img/cart-img-2.png" },
+  "3":  {"id": 3, "name": "Jacket", "price": 300, "img": "./img/cart-img-3.png"}
+  
+}

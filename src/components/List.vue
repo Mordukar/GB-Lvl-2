@@ -1,21 +1,36 @@
 <template>
   <div class="wrapper-list" id="list">
       <GoodItem
-          v-for="item in items"
-          v-bind:item="item"
+          v-for="id in getItemsOnPage"
+          :id="id"
+          :key="id"
       />
   </div>
 </template>
 
 <script>
 import GoodItem from "./GoodItem.vue";
+import { mapMutations, mapGetters, mapActions } from 'vuex'
 
 export default  {
   name: 'list',
-  props: ['items'],
   components: {
     GoodItem
   },
+  methods: {
+    ...mapActions([
+      'requestData'
+    ])
+  },
+  computed: {
+    ...mapGetters([
+      'getItemsOnPage',
+      'getFullPrice'
+    ]),
+  },
+  created () {
+    this.requestData(1)
+  }
 }
 </script>
 
