@@ -4,6 +4,7 @@
           v-for="id in getItemsOnPage"
           :id="id"
           :key="id"
+          @addToCart="addToCart"
       />
   </div>
 </template>
@@ -19,14 +20,19 @@ export default  {
   },
   methods: {
     ...mapActions([
-      'requestData'
-    ])
+      'requestData',
+      'addToCart'
+    ]),
+    addToCart(data) {
+      this.addToCart(data)
+    }
   },
   computed: {
     ...mapGetters([
       'getItemsOnPage',
       'getFullPrice'
     ]),
+
   },
   created () {
     this.requestData(1)

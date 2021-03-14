@@ -1,8 +1,9 @@
 <template>
   <div class="good__item">
-    <!-- <img class="good__img" :src=key.img alt="cart_img"> -->
-    <h2>{{ getItemData }}</h2>
-    <!-- <span>{{ key.price }}</span> -->
+    <img class="good__img" :src=getItemData.img alt="cart_img">
+    <h2>{{ getItemData.name }}</h2>
+    <span>{{ getItemData.price }}</span>
+    <button @click="addToCart">Add to cart</button>
   </div>
 </template>
 
@@ -11,7 +12,7 @@
 
   export default {
     props: {
-      id: Number
+      id: String
     },
     computed: {
       ...mapGetters([
@@ -20,8 +21,12 @@
       getItemData () {
         return this.getData[this.id]
       }
+    },
+    methods: {
+      addToCart() {
+        this.$emit('addToCart', this.getItemData)
+      }
     }
-    
   }
 </script>
 
