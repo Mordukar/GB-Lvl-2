@@ -8,11 +8,14 @@
 
 <script>
   export default  {
-    // props: {
-    //   key: {
-    //     type: Object,
-    //   }
-    // },
+    props: {
+      carItemData: {
+        type: Object,
+        default() {
+          return {}
+        }
+      }
+    },
   }
 </script>
 

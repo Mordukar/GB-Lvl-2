@@ -24,7 +24,8 @@
     },
     methods: {
       addToCart() {
-        this.$emit('addToCart',this.getItemData)
+        this.$emit('addToCart', this.getItemData)
+        console.log(this.getItemData)
       }
     }
   }

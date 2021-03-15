@@ -12,14 +12,14 @@ import CartItem from "./CartItem.vue";
 
 export default  {
   name: 'cart',
-  // props: {
-  //   cartData: {
-  //     type: Array,
-  //     default() {
-  //       return[]
-  //     }
-  //   }
-  // },
+  props: {
+    cartData: {
+      type: Array,
+      default() {
+        return[]
+      }
+    }
+  },
   components: {
     CartItem
   },

@@ -14,8 +14,8 @@ export default new Vuex.Store({
       state.data = payload.newData;
       state.itemsOnPage = Object.keys(payload.newData);
     },
-    setCart: (state, cart) => {
-      state.cart.push(cart);
+    setCart: (state, product) => {
+      state.cart.push(product);
     },
   },
   getters: {
