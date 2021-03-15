@@ -14,8 +14,8 @@ export default new Vuex.Store({
       state.data = payload.newData;
       state.itemsOnPage = Object.keys(payload.newData);
     },
-    setCart: (state, itemsOnPage) => {
-      state.cart.push(itemsOnPage);
+    setCart: (state, cart) => {
+      state.cart.push(cart);
     },
   },
   getters: {
@@ -40,8 +40,8 @@ export default new Vuex.Store({
           commit("setData", { newData: res });
         });
     },
-    addToCart({ commit }, itemsOnPage) {
-      commit("setCart", itemsOnPage);
+    addToCart({ commit }, product) {
+      commit("setCart", product);
     },
   },
 });

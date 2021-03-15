@@ -28,7 +28,7 @@ export default {
   computed: {
     ...mapGetters([
       'getCart'
-    ])
+    ]),
   }
 }
 </script>

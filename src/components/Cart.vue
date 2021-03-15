@@ -1,9 +1,9 @@
 <template>
   <div class="cart__list" id="cart">
-      <CartItem
+      <!-- <CartItem
           v-for="key in itemsCart"
           v-bind:key="key"
-      />
+      /> -->
   </div>
 </template>
 
@@ -12,14 +12,14 @@ import CartItem from "./CartItem.vue";
 
 export default  {
   name: 'cart',
-  props: {
-    cartData: {
-      type: Array,
-      default() {
-        return[]
-      }
-    }
-  },
+  // props: {
+  //   cartData: {
+  //     type: Array,
+  //     default() {
+  //       return[]
+  //     }
+  //   }
+  // },
   components: {
     CartItem
   },

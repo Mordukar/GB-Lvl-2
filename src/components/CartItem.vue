@@ -1,18 +1,18 @@
 <template>
   <div class="cart__item">
-    <img class="cart__img" :src=key.img alt="cart_img">
+    <!-- <img class="cart__img" :src=key.img alt="cart_img">
     <h2>{{ key.name }}</h2>
-    <span>{{ key.price }}</span>
+    <span>{{ key.price }}</span> -->
   </div>
 </template>
 
 <script>
   export default  {
-    props: {
-      key: {
-        type: Object,
-      }
-    },
+    // props: {
+    //   key: {
+    //     type: Object,
+    //   }
+    // },
   }
 </script>
 

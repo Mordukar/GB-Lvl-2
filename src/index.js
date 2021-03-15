@@ -4,8 +4,8 @@ import './styles/style.css'
 import store from './store/index.js'
 
 new Vue({
-  store,
   render: h => h(App),
+  store,
 }).$mount('#app')
 
 
