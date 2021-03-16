@@ -19,7 +19,6 @@
       ]),
       getItemCart () {
         return this.getItemsInCart[this.idCart]
-        console.log(this.getItemsInCart[this.idCart])
       }
     },
   }
