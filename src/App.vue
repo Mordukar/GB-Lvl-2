@@ -4,8 +4,8 @@
     <List />
     <h1>Корзина</h1>
     <Cart 
-      v-if="getCart.length"
-      :cartData="getCart"
+      v-if="getItemsInCart.length"
+      :cartData="getItemsInCart"
      />
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getCart'
+      'getItemsInCart'
     ]),
   }
 }

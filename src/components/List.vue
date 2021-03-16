@@ -1,43 +1,40 @@
 <template>
   <div class="wrapper-list" id="list">
       <GoodItem
-          v-for="id in getItemsOnPage"
-          :id="id"
-          :key="id"
+          v-for="idItems in getItemsOnPage"
+          :idItems="idItems"
+          :key="idItems"
           @addToCart="addToCart"
       />
   </div>
 </template>
 
 <script>
-import GoodItem from "./GoodItem.vue";
-import { mapMutations, mapGetters, mapActions } from 'vuex'
+  import GoodItem from "./GoodItem.vue";
+  import { mapMutations, mapGetters, mapActions } from 'vuex'
 
-export default  {
-  name: 'list',
-  components: {
-    GoodItem
-  },
-  methods: {
-    ...mapActions([
-      'requestData',
-      'addToCart'
-    ]),
-    addToCart(data) {
-      this.addToCart(data)
+  export default  {
+    name: 'list',
+    components: {
+      GoodItem
+    },
+    methods: {
+      ...mapActions([
+        'requestData',
+      ]),
+      
+    },
+    computed: {
+      ...mapGetters([
+        'getItemsOnPage',
+        'getFullPrice'
+      ]),
+
+    },
+    created () {
+      this.requestData(1)
     }
-  },
-  computed: {
-    ...mapGetters([
-      'getItemsOnPage',
-      'getFullPrice'
-    ]),
-
-  },
-  created () {
-    this.requestData(1)
   }
-}
 </script>
 
 <style>

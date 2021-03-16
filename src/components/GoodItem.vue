@@ -8,26 +8,29 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
 
   export default {
     props: {
-      id: String
+      idItems: Number
+    },
+    methods: {
+      ...mapActions([
+        'requestToCart'
+      ]),
+      addToCart(data) {
+        this.requestToCart(data)
+      }
+    
     },
     computed: {
       ...mapGetters([
         'getData'
       ]),
       getItemData () {
-        return this.getData[this.id]
+        return this.getData[this.idItems]
       }
     },
-    methods: {
-      addToCart() {
-        this.$emit('addToCart', this.getItemData)
-        console.log(this.getItemData)
-      }
-    }
   }
 </script>
 

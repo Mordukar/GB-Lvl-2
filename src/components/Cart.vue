@@ -1,24 +1,23 @@
 <template>
   <div class="cart__list" id="cart">
-      <!-- <CartItem
-          v-for="key in itemsCart"
-          v-bind:key="key"
-      /> -->
+      <CartItem
+          v-for="idCart in getItemsInCart"
+          :idCart="idCart"
+          :key="idCart"
+      />
   </div>
 </template>
 
 <script>
 import CartItem from "./CartItem.vue";
+import { mapGetters } from 'vuex'
 
 export default  {
   name: 'cart',
-  props: {
-    cartData: {
-      type: Array,
-      default() {
-        return[]
-      }
-    }
+  computed: {
+    ...mapGetters([
+      'getItemsInCart'
+    ])
   },
   components: {
     CartItem

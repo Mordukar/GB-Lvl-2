@@ -25,7 +25,7 @@ export default new Vuex.Store({
       const keys = state.itemsOnPage;
       return keys.reduce((res, cur) => res + state.data[cur].price, 0);
     },
-    getCart(state) {
+    getItemsInCart(state) {
       return state.cart;
     },
   },
@@ -40,7 +40,7 @@ export default new Vuex.Store({
           commit("setData", { newData: res });
         });
     },
-    addToCart({ commit }, product) {
+    requestToCart({ commit }, product) {
       commit("setCart", product);
     },
   },

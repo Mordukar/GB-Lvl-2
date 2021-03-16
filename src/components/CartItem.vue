@@ -1,19 +1,25 @@
 <template>
   <div class="cart__item">
-    <!-- <img class="cart__img" :src=key.img alt="cart_img">
-    <h2>{{ key.name }}</h2>
-    <span>{{ key.price }}</span> -->
+    <img class="cart__img" :src=getItemCart.img alt="cart_img">
+    <h2>{{ getItemCart.name }}</h2>
+    <span>{{ getItemCart.price }}</span>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default  {
     props: {
-      carItemData: {
-        type: Object,
-        default() {
-          return {}
-        }
+      idCart: Number
+    },
+    computed: {
+      ...mapGetters([
+        'getItemsInCart'
+      ]),
+      getItemCart () {
+        return this.getItemsInCart[this.idCart]
+        console.log(this.getItemsInCart[this.idCart])
       }
     },
   }
