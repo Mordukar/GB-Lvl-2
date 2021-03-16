@@ -3,7 +3,7 @@
     <img class="good__img" :src=getItemData.img alt="cart_img">
     <h2>{{ getItemData.name }}</h2>
     <span>{{ getItemData.price }}</span>
-    <button @click="addToCart">Add to cart</button>
+    <button @click="addToCart(getItemData)">Add to cart</button>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 
   export default {
     props: {
-      idItems: Number
+      idItems: String
     },
     methods: {
       ...mapActions([

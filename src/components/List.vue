@@ -4,7 +4,6 @@
           v-for="idItems in getItemsOnPage"
           :idItems="idItems"
           :key="idItems"
-          @addToCart="addToCart"
       />
   </div>
 </template>

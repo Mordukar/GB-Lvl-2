@@ -1,8 +1,8 @@
 <template>
   <div class="cart__item">
-    <img class="cart__img" :src=getItemCart.img alt="cart_img">
-    <h2>{{ getItemCart.name }}</h2>
-    <span>{{ getItemCart.price }}</span>
+    <img class="cart__img" :src=cartItem.img alt="cart_img">
+    <h2>{{ cartItem.name }}</h2>
+    <span>{{ cartItem.price }}</span>
   </div>
 </template>
 
@@ -11,15 +11,7 @@
 
   export default  {
     props: {
-      idCart: Number
-    },
-    computed: {
-      ...mapGetters([
-        'getItemsInCart'
-      ]),
-      getItemCart () {
-        return this.getItemsInCart[this.idCart]
-      }
+      cartItem: Object
     },
   }
 </script>
