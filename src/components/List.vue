@@ -5,22 +5,34 @@
           :idItems="idItems"
           :key="idItems"
       />
+      <Button @clicked="loadMoreData">Загрузить ещё</Button>
   </div>
 </template>
 
 <script>
   import GoodItem from "./GoodItem.vue";
+  import Button from "./Button.vue";
   import { mapMutations, mapGetters, mapActions } from 'vuex'
 
   export default  {
     name: 'list',
     components: {
-      GoodItem
+      GoodItem,
+      Button
+    },
+    data () {
+      return{
+        page: 0,
+      }
     },
     methods: {
       ...mapActions([
         'requestData',
       ]),
+      loadMoreData () {
+        this.page++
+        this.requestData(this.page)
+      }
       
     },
     computed: {
@@ -31,7 +43,7 @@
 
     },
     created () {
-      this.requestData(1)
+      this.loadMoreData()
     }
   }
 </script>

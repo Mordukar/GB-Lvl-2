@@ -11,8 +11,8 @@ export default new Vuex.Store({
   },
   mutations: {
     setData(state, payload) {
-      state.data = payload.newData;
-      state.itemsOnPage = Object.keys(payload.newData);
+      state.data = { ...state.data , ...payload.newData};
+      state.itemsOnPage.push(...Object.keys(payload.newData));
     },
     setCart: (state, product) => {
       state.cart.push(product);
@@ -32,16 +32,27 @@ export default new Vuex.Store({
   actions: {
     requestData({ commit, state }, page) {
       // console.log(state);
-      fetch(`/database/items${page}.json`)
-        .then((res) => {
+      fetch(`/itemslist/${page}`, {
+        method: 'GET',
+      })
+        .then(res => {
           return res.json();
         })
-        .then((res) => {
+        .then(res => {
           commit("setData", { newData: res });
         });
     },
     requestToCart({ commit }, product) {
       commit("setCart", product);
     },
+    addItem ({}, data) {
+      fetch('/itemslist', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
   },
 });
