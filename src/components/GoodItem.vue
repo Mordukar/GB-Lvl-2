@@ -20,7 +20,6 @@
         'addCart'
       ]),
       addToCart(data) {
-        console.log(data)
         this.requestToCart(data)
         this.addCart(data)
       },

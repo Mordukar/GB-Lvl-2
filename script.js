@@ -41,12 +41,17 @@ app.post('/cartlist', (req, res) => {
   fs.readFile(filePath, 'utf8', (err, data) => {
 
     const list = JSON.parse(data || {});
-
+    const amountOfData = Object.keys(list).length
+    const newID = amountOfData + 1;
+    const newItem = req.body;
+    newItem.id = newID;
+    list[newID] = newItem;
     fs.writeFile(filePath, JSON.stringify(list), (err)=> {
       if (err) {
         console.log(err);
       }
       res.send(list);
+      res.end(list)
     })
   })
 })
