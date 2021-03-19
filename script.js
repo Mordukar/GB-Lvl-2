@@ -34,6 +34,23 @@ app.post('/itemslist', (req, res) => {
   })
 })
 
+app.post('/cartlist', (req, res) => {
+
+  const filePath = './public/database/cart.json'
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+
+    const list = JSON.parse(data || {});
+
+    fs.writeFile(filePath, JSON.stringify(list), (err)=> {
+      if (err) {
+        console.log(err);
+      }
+      res.send(list);
+    })
+  })
+})
+
 
 
 app.listen(4000, () => {

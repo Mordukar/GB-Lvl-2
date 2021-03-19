@@ -53,6 +53,15 @@ export default new Vuex.Store({
           'Content-Type': 'application/json'
         }
       })
+    },
+    addCart ({}, data) {
+      fetch('/cartlist', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
     }
   },
 });
