@@ -52,7 +52,7 @@ app.post('/cartlist', (req, res) => {
       if (err) {
         console.log(err);
       }
-      res.json(list)
+      res.json(newItem)
     })
   })
   
