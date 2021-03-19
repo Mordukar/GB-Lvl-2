@@ -50,8 +50,9 @@ app.post('/cartlist', (req, res) => {
       if (err) {
         console.log(err);
       }
+      res.status(200).send(list);
       res.send(list);
-      res.end(list)
+      res.end(list);
     })
   })
 })
