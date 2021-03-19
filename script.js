@@ -40,7 +40,13 @@ app.post('/cartlist', (req, res) => {
 
   fs.readFile(filePath, 'utf8', (err, data) => {
 
-    const list = JSON.parse(data || {});
+    const list = function getUsers(data) {
+      return typeof data === "string" ?
+          JSON.parse(data)
+          :
+          data;
+    };
+
     const amountOfData = Object.keys(list).length
     const newID = amountOfData + 1;
     const newItem = req.body;
@@ -50,14 +56,12 @@ app.post('/cartlist', (req, res) => {
       if (err) {
         console.log(err);
       }
-      res.status(200).send(list);
+      // res.status(200).send(list);
       res.send(list);
-      res.end(list);
+      // res.end(list);
     })
   })
 })
-
-
 
 app.listen(4000, () => {
   console.log('Server started');

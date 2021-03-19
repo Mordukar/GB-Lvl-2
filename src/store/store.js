@@ -15,7 +15,7 @@ export default new Vuex.Store({
       state.itemsOnPage.push(...Object.keys(payload.newData));
     },
     setCart: (state, product) => {
-      state.cart.push(product);
+      state.cart.push(...Object.keys(product.newData));
     },
   },
   getters: {
@@ -43,7 +43,19 @@ export default new Vuex.Store({
         });
     },
     requestToCart({ commit }, product) {
-      commit("setCart", product);
+      fetch('/cartlist', {
+        method: 'POST',
+        body: JSON.stringify(product),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(res => {
+          return res.json();
+        })
+        .then(res => {
+          commit("setCart", { newData: res });
+        });
     },
     addItem ({}, data) {
       fetch('/itemslist', {
@@ -54,14 +66,5 @@ export default new Vuex.Store({
         }
       })
     },
-    addCart ({}, data) {
-      fetch('/cartlist', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-    }
   },
 });

@@ -17,11 +17,9 @@
     methods: {
       ...mapActions([
         'requestToCart',
-        'addCart'
       ]),
       addToCart(data) {
         this.requestToCart(data)
-        this.addCart(data)
       },
 
     },
