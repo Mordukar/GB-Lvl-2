@@ -35,17 +35,13 @@ app.post('/itemslist', (req, res) => {
 })
 
 app.post('/cartlist', (req, res) => {
+  let list = {};
 
   const filePath = './public/database/cart.json'
 
   fs.readFile(filePath, 'utf8', (err, data) => {
 
-    const list = function getUsers(data) {
-      return typeof data === "string" ?
-          JSON.parse(data)
-          :
-          data;
-    };
+    list = data.length > 0 ? JSON.parse(data) : {}
 
     const amountOfData = Object.keys(list).length
     const newID = amountOfData + 1;
@@ -56,11 +52,10 @@ app.post('/cartlist', (req, res) => {
       if (err) {
         console.log(err);
       }
-      // res.status(200).send(list);
-      res.send(list);
-      // res.end(list);
+      res.json(list)
     })
   })
+  
 })
 
 app.listen(4000, () => {
