@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const app = express();
 
 app.use(express.static('./public'));
-app.use(bodyParser);
+app.use(bodyParser.json());
 
 app.get('/itemslist/:page', (req, res) => {
   const page = req.params.page;

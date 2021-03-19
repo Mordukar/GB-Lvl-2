@@ -1,6 +1,1 @@
-{ 
-  "7":  {"id": 7, "name": "Shirt", "price": 150, "img": "./img/cart-img-1.png" },
-  "8":  {"id": 8, "name": "Shorts", "price": 1150, "img": "./img/cart-img-2.png" },
-  "9":  {"id": 9, "name": "Jacket", "price": 1300, "img": "./img/cart-img-3.png"}
-  
-}
+{"7":{"id":7,"name":"Shirt","price":150,"img":"./img/cart-img-1.png"},"8":{"id":8,"name":"Shorts","price":1150,"img":"./img/cart-img-2.png"},"9":{"id":9,"name":"Jacket","price":1300,"img":"./img/cart-img-3.png"}}
